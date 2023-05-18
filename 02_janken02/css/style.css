@@ -1,0 +1,128 @@
+:root {
+    --animationCount: 1;
+    --custom-content: "乾燥を終了する";
+    }
+  
+  body{
+      background-color: #ffffff;
+  }
+  
+  .wrap{
+    position: relative;
+  
+  }
+  
+  .laundryset{
+      margin: 0 auto;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(50%) translateX(-50%);
+      -webkit-transform: translateY(50%) translateX(-50%);
+  }
+
+  
+    .laundryset{
+      width:1100px;
+      height:547.714286px;
+      background:url(../img/laundryset.png) no-repeat;
+  }
+  
+  .laundryset.on-animation{
+  animation: guru 2.9s steps(7) infinite;
+  }
+  
+  .laundryset.is-stopped{
+    animation: guru 2.9s steps(7) var(--animationCount) forwards;
+  }
+  
+  
+  @keyframes guru {
+      to{
+        background-position: 0px -3834px;
+    }
+  
+  }
+  @-webkit-keyframes guru {
+      to{
+          background-position: -1580px 0;
+      }
+  }
+  @-moz-keyframes guru {
+      to{
+          background-position: -1580px 0;
+      }
+  }
+
+
+
+  button {
+    padding: 0;
+    margin: 0px 500px;
+    border: none;
+    background: none;
+    
+  }
+  
+  button {
+    --primary-color: #111;
+    --hovered-color: #c84747;
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  button p {
+    margin: 0;
+    position: relative;
+    font-size: 20px;
+    color: var(--primary-color)
+  }
+  
+  button::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--hovered-color);
+    height: 2px;
+    transition: 0.3s ease-out;
+  }
+  
+  button p::before {
+    position: absolute;
+    content: var(--custom-content);
+    width: 0%;
+    inset: 0;
+    color: var(--hovered-color);
+    overflow: hidden;
+    transition: 0.3s ease-out;
+  }
+  
+  button:hover::after {
+    width: 100%;
+  }
+  
+  button:hover p::before {
+    width: 100%;
+  }
+  
+  button:hover svg {
+    transform: translateX(4px);
+    color: var(--hovered-color)
+  }
+  
+  button svg {
+    color: var(--primary-color);
+    transition: 0.2s;
+    position: relative;
+    width: 15px;
+    transition-delay: 0.2s;
+  }
+
+ 
